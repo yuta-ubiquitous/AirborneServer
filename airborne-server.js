@@ -81,7 +81,7 @@ app.get('/drone/connect', function(req, res) {
         drone.flatTrim();
         drone.startPing();
         drone.flatTrim();
-
+        
         setTimeout(function () {
           console.log('ready for flight');
           res.send('drone#connected');
@@ -134,7 +134,8 @@ app.get('/drone/control/forward', function(req, res) {
     drone.forward( param );
     setTimeout( function(){
       console.log('drone#forward');
-      res.send('drone#forward');
+      console.log( param );
+      res.send('drone#forward ' + JSON.stringify(param) );
     }, param.steps * 12 );
   }else{
     res.send('drone can not control');
@@ -147,7 +148,8 @@ app.get('/drone/control/backward', function(req, res) {
     drone.backward( param );
     setTimeout( function(){
       console.log('drone#backward');
-      res.send('drone#backward');
+      console.log( param );
+      res.send('drone#backward' + JSON.stringify(param) );
     }, param.steps * 12 );
   }else{
     res.send('drone can not control');
@@ -160,7 +162,8 @@ app.get('/drone/control/tiltright', function(req, res) {
     drone.tiltRight( param );
     setTimeout( function(){
       console.log('drone#tiltright');
-      res.send('drone#tiltright');
+      console.log( param );
+      res.send('drone#tiltright' + JSON.stringify(param) );
     }, param.steps * 12 );
   }else{
     res.send('drone can not control');
@@ -173,7 +176,8 @@ app.get('/drone/control/tiltleft', function(req, res) {
     drone.tiltLeft( param );
     setTimeout( function(){
       console.log('drone#tiltleft');
-      res.send('drone#tiltleft');
+      console.log(param);
+      res.send('drone#tiltleft' + JSON.stringify(param) );
     }, param.steps * 12 );
   }else{
     res.send('drone can not control');
@@ -186,7 +190,8 @@ app.get('/drone/control/turnright', function(req, res) {
     drone.turnRight( param );
     setTimeout( function(){
       console.log('drone#turnright');
-      res.send('drone#turnright');
+      console.log( param );
+      res.send('drone#turnright' + JSON.stringify(param) );
     }, param.steps * 12 );
   }else{
     res.send('drone can not control');
@@ -199,7 +204,8 @@ app.get('/drone/control/turnleft', function(req, res) {
     drone.turnLeft( param );
     setTimeout( function(){
       console.log('drone#turnleft');
-      res.send('drone#turnleft');
+      console.log( param );
+      res.send('drone#turnleft' + JSON.stringify(param) );
     }, param.steps * 12 );
   }else{
     res.send('drone can not control');
@@ -212,7 +218,8 @@ app.get('/drone/control/up', function(req, res) {
     drone.up( param );
     setTimeout( function(){
       console.log('drone#up');
-      res.send('drone#up');
+      console.log( param );
+      res.send('drone#up' + JSON.stringify(param) );
     }, param.steps * 12 );
   }else{
     res.send('drone can not control');
@@ -231,7 +238,8 @@ app.get('/drone/control/drive', function(req, res) {
     drone.drive( drive_param, param.steps );
     setTimeout( function(){
       console.log('drone#drive');
-      res.send('drone#drive');
+      console.log( param );
+      res.send('drone#drive' + JSON.stringify(param) );
     }, param.steps * 12 );
   }else{
     res.send('drone can not control');
