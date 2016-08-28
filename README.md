@@ -1,1 +1,2 @@
 # AirborneServer
+Airborneの操作を行うAPIサーバ

@@ -226,6 +226,20 @@ app.get('/drone/control/up', function(req, res) {
   }
 } );
 
+app.get('/drone/control/down', function(req, res) {
+  var param = check_move_parameter(req.query);
+  if( drone.connected && drone.status.flying ){
+    drone.down( param );
+    setTimeout( function(){
+      console.log('drone#down');
+      console.log( param );
+      res.send('drone#down' + JSON.stringify(param) );
+    }, param.steps * 12 );
+  }else{
+    res.send('drone can not control');
+  }
+} );
+
 app.get('/drone/control/drive', function(req, res) {
   var param = check_drive_parameter(req.query);
   if( drone.connected && drone.status.flying ){
